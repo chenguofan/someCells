@@ -46,7 +46,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return 6;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,7 +103,7 @@
         
         return cell;
         
-    }else{
+    }else if (row == 4){
         static NSString *reusedID4 = @"reusedID4";
         SubNameCell *cell = [tableView dequeueReusableCellWithIdentifier:reusedID4];
         if (!cell) {
@@ -112,6 +112,17 @@
         cell.indexPath = indexPath;
         cell.titel = @"4";
         cell.subTitel = @"4.0";
+        
+        return cell;
+        
+    }else{
+        static NSString *reusedID5 = @"reusedID5";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusedID5];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reusedID5];
+        }
+        cell.textLabel.text = @"5";
+        cell.imageView.image = [UIImage imageNamed:@"5.jpg"];
         
         return cell;
     }
